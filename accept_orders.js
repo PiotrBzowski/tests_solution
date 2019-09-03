@@ -35,7 +35,6 @@ function getItems() {
         "Api order status is 200": (r) => r.status === 200,
         "Get orders response is lower than 1500 ms": (r) => r.timings.duration < 1500
     })
-
     const responseBody = JSON.parse(getOrders.body);
     const responseBodyArray = responseBody.content;
     return responseBodyArray.map(element => JSON.stringify(element.id));
@@ -69,15 +68,15 @@ function modifyOrder(order_id) {
 
 ////TEST PROCEDURE
 export function setup() {
-    console.log("Successfully setup")
+    console.log("Successfully setup");
 }
 
 export default function() {
     loginEmployee();
     const ordersArray = getItems();
-	ordersArray.map(element => modifyOrder(element));
+    ordersArray.map(element => modifyOrder(element));
 }
 
 export function teardown() {
-    console.log("Successfully finished")
+    console.log("Successfully finished");
 }
