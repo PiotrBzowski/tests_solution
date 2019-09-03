@@ -7,7 +7,6 @@ import {
 
 //// VARIABLES
 const baseURL = "http://host.docker.internal:8080/";
-const ordersArray = [];
 const headers = {
     headers: {
         "Content-Type": "application/json"
@@ -31,7 +30,6 @@ function loginEmployee() {
 
 /* Function used to get ids from first page of ordered items*/
 function getItems() {
-    const itemsIdArray = [];
     const getOrders = http.get(baseURL + "api/orders/?page=0&size=50");
     check(getOrders, {
         "Api order status is 200": (r) => r.status === 200,
@@ -40,8 +38,7 @@ function getItems() {
 
     const responseBody = JSON.parse(getOrders.body);
     const responseBodyArray = responseBody.content;
-    const itemsIdArray = responseBodyArray.map(element => element.id);
-    return itemsIdArray;
+    return responseBodyArray.map(element => JSON.stringify(element.id));
 }
 
 /* Function used to modify data from first page of ordered items*/
@@ -72,15 +69,15 @@ function modifyOrder(order_id) {
 
 ////TEST PROCEDURE
 export function setup() {
-    console.log("Successfully setup");
+    console.log("Successfully setup")
 }
 
 export default function() {
     loginEmployee();
-    ordersArray = getItems();
-    ordersArray.map(element => modifyOrder(element));
+    const ordersArray = getItems();
+	ordersArray.map(element => modifyOrder(element));
 }
 
 export function teardown() {
-    console.log("Successfully finished");
+    console.log("Successfully finished")
 }
