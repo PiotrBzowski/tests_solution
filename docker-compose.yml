@@ -8,4 +8,4 @@ services:
   k6_test2:
     image: loadimpact/k6
     container_name: test2_k6
-command: run https://raw.githubusercontent.com/PiotrBzowski/tests_solution/master/accept_orders.js
+    command: run https://raw.githubusercontent.com/PiotrBzowski/tests_solution/master/accept_orders.js

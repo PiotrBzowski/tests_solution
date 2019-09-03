@@ -1,3 +1,4 @@
+# Introduction
 1. Software requirements
     - docker, 
     - java (at least v1.8).
@@ -32,35 +33,39 @@
     5.3 Duration time:
         - 1 iteration as peak load 
         - 10 seconds as simulation of load hours,
-        - 5 minutes (as 24 hours substitution) 
+        - 5 minutes (as 24 hours substitution).
 
 6. Base test scenarios:
-    6.1 400 virtual users 10 seconds
-    6.2 1000 virtual users for one iteration
+    6.1 400 virtual users 10 seconds,
+    6.2 1000 virtual users for one iteration.
 
 Depending on results next tests scenario will be performed to find borders for stability and reliability of service.
 
+
+#RESULTS
 7. Create orders test scenario results:
     7.1 1000 vus, 1 iteration -> 100% valid response time.
         10000 vus, 1 iteration -> cannot perform test properly (hardware limitations).
 
     7.2 400 vus, 10 seconds -> valid response time for less than 5% requests.
 
-    7.3 50 vus, 5 minutes -> 99% valid response time
+    7.3 50 vus, 5 minutes -> 99% valid response time,
         200 vus, 5 minutes -> valid post requests response time, get requests response time above expectations,
-        300 vus, 5 mintues -> less than 5% valid response time
+        300 vus, 5 mintues -> less than 5% valid response time.
 
 8. Accept orders test scenario results:
-    8.1 1000 vus, 1 iteration -> 100% valid response time.
-        10000 vus, 1 iteration -> cannot perform test properly (hardware limitations).
+    8.1 1000 vus, 1 iteration -> 100% valid response time,
+        10000 vus, 1 iteration -> cannot perform test properly (hardware limitations),
 
     8.2 400 vus, 10 seconds -> valid post requests response time, get requests response time above expectations,
-    8.3 50 vus, 5 minutes -> 99% valid response time
+    8.3 50 vus, 5 minutes -> 99% valid response time.
 
+
+# Conclusion
 9. Observations: 
-    - maximum load depends on hardware limitations for testing environment. 
-    - SUT shouldn't share the same resources with device performing test data (generating traffic, etc.)
-    - each iteration worse results (hardware requires cooling down)
+    - maximum load depends on hardware limitations for testing environment,
+    - SUT shouldn't share the same resources with device performing test data (generating traffic, etc.),
+    - each test iteration results with worse performance (hardware requires cooling down).
 
 10. Sources:
 1) https://octoperf.com/blog/2015/06/17/response-time-e-commerce/
