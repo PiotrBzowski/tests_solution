@@ -42,7 +42,7 @@
 Depending on results next tests scenario will be performed to find borders for stability and reliability of service.
 
 
-#RESULTS
+# RESULTS
 7. Create orders test scenario results:
     7.1 1000 vus, 1 iteration -> 100% valid response time.
         10000 vus, 1 iteration -> cannot perform test properly (hardware limitations).
